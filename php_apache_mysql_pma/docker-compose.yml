@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  php:
+    build:
+      context: ./docker/php
+    ports:
+      - 8001:80
+    volumes:
+      - ./docker/php/xdebug.ini /etc/php/conf.d/xdebug.ini
+      - ./:/var/www/html/
+
+#   mysql:
+#     image: mysql:8
+#     restart: always
+#     volumes:
+#       - ./docker/db_data:/var/lib/mysql
+
+#   phpmyadmin:
+#     image: phpmyadmin/phpmyadmin
+#     restart: always
+#     depends_on:
+#       - mysql
+#     environment:
+#       PMA_HOST: mysql
+#     ports:
+#       - 8002:80
+
+# volumes:
+#   db_data:
